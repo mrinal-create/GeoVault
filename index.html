@@ -1,18 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <link rel="stylesheet" href="style.css">
-
-  <title>geovault</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEOVAULT — Country Explorer</title>
+  <link href="./style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-  <body>
-    <div id="navbar-root"></div>
-    <div id="app-root"></div>
-
-    <script src="script.js"></script>
+<body>
+  <div id="app" class="geovault dark">
+    <nav class="gv-navbar">
+      <div class="gv-logo">GEOVAULT</div>
+      <div class="gv-navbar-center">
+        <span class="gv-live-dot"></span>
+        <span id="nav-count">0 COUNTRIES · REST COUNTRIES API</span>
+      </div>
+      <div class="gv-navbar-right">
+        <button class="gv-theme-toggle" id="theme-toggle">
+          <span>LIGHT / DARK</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <script src="./script.js"></script>
 </body>
 </html>
