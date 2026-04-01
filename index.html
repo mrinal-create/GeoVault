@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEOVAULT — Country Explorer</title>
   <link href="./style.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="app" class="geovault dark">
+
     <nav class="gv-navbar">
       <div class="gv-logo">GEOVAULT</div>
       <div class="gv-navbar-center">
@@ -18,11 +17,30 @@
         <span id="nav-count">0 COUNTRIES · REST COUNTRIES API</span>
       </div>
       <div class="gv-navbar-right">
-        <button class="gv-theme-toggle" id="theme-toggle">
-          <span>LIGHT / DARK</span>
-        </button>
+        <button class="gv-theme-toggle" id="theme-toggle">LIGHT</button>
       </div>
     </nav>
+
+    <div class="gv-controls">
+      <div class="gv-search-wrapper">
+        <input class="gv-search" id="search-input" type="text" placeholder="Search country, capital, or region...">
+      </div>
+      <div class="gv-filters" id="filters">
+        <button class="gv-pill active">ALL</button>
+        <button class="gv-pill">AFRICA</button>
+        <button class="gv-pill">AMERICAS</button>
+      </div>
+    </div>
+
+    <div class="gv-main">
+      <div class="gv-grid" id="country-grid">
+        <div class="gv-loading" id="loading" style="display:flex">
+          <div class="gv-spinner"></div>
+          Loading countries...
+        </div>
+      </div>
+    </div>
+
   </div>
   <script src="./script.js"></script>
 </body>

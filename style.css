@@ -22,7 +22,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
   flex-direction: column;
 }
 
-/* ===== NAVBAR ===== */
+/*  NAVBAR  */
 .gv-navbar {
   height: 48px;
   display: flex;
@@ -41,3 +41,21 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .gv-navbar-center { display: flex; align-items: center; gap: 8px; font-family: var(--gv-mono); font-size: 11px; color: var(--gv-text-muted); }
 .gv-live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gv-green); box-shadow: 0 0 8px var(--gv-green); }
 .gv-theme-toggle { background: var(--gv-text-ghost); border: none; color: var(--gv-text-muted); padding: 6px 14px; border-radius: 20px; font-family: var(--gv-mono); font-size: 12px; cursor: pointer; }
+
+/*  CONTROLS & GRID   */
+.gv-controls { padding: 24px 32px 0; }
+.gv-search-wrapper { margin-bottom: 16px; }
+.gv-search { width: 100%; height: 56px; background: var(--gv-card); border: 1px solid var(--gv-border); border-radius: 8px; padding: 0 20px; font-size: 16px; color: var(--gv-text-main); }
+.gv-filters { display: flex; gap: 8px; margin-bottom: 20px; }
+.gv-pill { padding: 8px 18px; border-radius: 20px; font-size: 12px; font-family: var(--gv-mono); background: var(--gv-card); color: var(--gv-text-muted); border: 1px solid var(--gv-border); }
+.gv-main { display: flex; padding: 0 32px; gap: 24px; }
+.gv-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-bottom: 80px; }
+
+/* LOADING  */
+.gv-loading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; min-height: 300px; font-family: var(--gv-mono); color: var(--gv-text-muted); font-size: 14px; }
+.gv-spinner { width: 24px; height: 24px; border: 2px solid var(--gv-border); border-top-color: var(--gv-cyan); border-radius: 50%; animation: gv-spin 0.8s linear infinite; margin-right: 12px; }
+@keyframes gv-spin { to { transform: rotate(360deg); } }
+
+/*  RESPONSIVE  */
+@media (max-width: 1200px) { .gv-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .gv-grid { grid-template-columns: 1fr; } .gv-main, .gv-controls { padding: 16px; } }
