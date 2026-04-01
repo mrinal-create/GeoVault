@@ -5,43 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEOVAULT — Country Explorer</title>
   <link href="./style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div id="app" class="geovault dark">
+<body class="geovault">
 
-    <nav class="gv-navbar">
-      <div class="gv-logo">GEOVAULT</div>
-      <div class="gv-navbar-center">
-        <span class="gv-live-dot"></span>
-        <span id="nav-count">0 COUNTRIES · REST COUNTRIES API</span>
-      </div>
-      <div class="gv-navbar-right">
-        <button class="gv-theme-toggle" id="theme-toggle">LIGHT</button>
-      </div>
-    </nav>
+  <nav class="gv-navbar">
+    <div class="gv-logo">GEOVAULT</div>
+    <div class="gv-navbar-center">
+      <span class="gv-live-dot"></span>
+      <span id="nav-count">0 COUNTRIES · REST COUNTRIES API</span>
+    </div>
+    <div class="gv-navbar-right">
+      <button class="gv-theme-toggle" id="theme-toggle">
+        <span>LIGHT / DARK</span>
+      </button>
+    </div>
+  </nav>
 
-    <div class="gv-controls">
-      <div class="gv-search-wrapper">
-        <input class="gv-search" id="search-input" type="text" placeholder="Search country, capital, or region...">
-      </div>
-      <div class="gv-filters" id="filters">
-        <button class="gv-pill active">ALL</button>
-        <button class="gv-pill">AFRICA</button>
-        <button class="gv-pill">AMERICAS</button>
+  <div class="gv-controls">
+    <div class="gv-search-wrapper">
+      <input class="gv-search" id="search-input" type="text" placeholder="Search country, capital, or region...">
+    </div>
+
+    <div class="gv-filters" id="filters">
+      <button class="gv-pill active">ALL</button>
+      <button class="gv-pill">AFRICA</button>
+      <button class="gv-pill">AMERICAS</button>
+      <button class="gv-pill">ASIA</button>
+      <button class="gv-pill">EUROPE</button>
+      <button class="gv-pill">OCEANIA</button>
+      <button class="gv-pill">1M+ POP</button>
+      <button class="gv-pill">100M+ POP</button>
+      <button class="gv-pill">♥ FAVORITES</button>
+    </div>
+
+    <div class="gv-sort-row">
+      <span class="gv-sort-label">SORT:</span>
+      <button class="gv-sort-btn">NAME</button>
+      <button class="gv-sort-btn active">POPULATION</button>
+      <button class="gv-sort-btn">AREA</button>
+    </div>
+  </div>
+
+  <div class="gv-main">
+    <div class="gv-grid" id="country-grid">
+      <div class="gv-loading" id="loading" style="display:flex">
+        <div class="gv-spinner"></div>
+        Loading countries...
       </div>
     </div>
 
-    <div class="gv-main">
-      <div class="gv-grid" id="country-grid">
-        <div class="gv-loading" id="loading" style="display:flex">
-          <div class="gv-spinner"></div>
-          Loading countries...
+    <div class="gv-panel" id="detail-panel" style="display:none">
+      <div class="gv-panel-gold"></div>
+      <div class="gv-panel-header">
+        <button class="gv-panel-close" id="panel-close">❌</button>
+        <img class="gv-panel-flag" id="panel-flag" src="" alt="">
+        <div class="gv-panel-name" id="panel-name"></div>
+        <div class="gv-panel-capital" id="panel-capital"></div>
+        <div class="gv-panel-subregion" id="panel-subregion"></div>
+      </div>
+      <div class="gv-panel-stats">
+        <div class="gv-panel-stat highlight">
+          <div class="gv-stat-label">POPULATION</div>
+          <div class="gv-stat-value cyan" id="panel-pop"></div>
+        </div>
+        <div class="gv-panel-stat">
+          <div class="gv-stat-label">AREA</div>
+          <div class="gv-stat-value" id="panel-area"></div>
+        </div>
+        <div class="gv-panel-stat">
+          <div class="gv-stat-label">REGION</div>
+          <div class="gv-stat-value" id="panel-region"></div>
+        </div>
+        <div class="gv-panel-stat">
+          <div class="gv-stat-label">LANGUAGES</div>
+          <div class="gv-stat-value" id="panel-langs"></div>
+        </div>
+      </div>
+      <div class="gv-panel-details">
+        <div class="gv-detail-row">
+          <span class="gv-detail-label">SUBREGION</span>
+          <span class="gv-detail-value" id="panel-sub2"></span>
+        </div>
+        <div class="gv-detail-row">
+          <span class="gv-detail-label">CURRENCIES</span>
+          <span class="gv-detail-value" id="panel-currencies"></span>
+        </div>
+        <div class="gv-detail-row">
+          <span class="gv-detail-label">CAPITAL</span>
+          <span class="gv-detail-value" id="panel-cap2"></span>
         </div>
       </div>
     </div>
-
   </div>
+
+  <div class="gv-statusbar">
+    <div class="gv-statusbar-left">
+      <span class="gv-live-dot"></span>
+      <span id="status-left">0 COUNTRIES · LIVE</span>
+    </div>
+    <span id="status-right">COUNTRIES 0 · WORLD POP 0 · LAND AREA 0 KM²</span>
+  </div>
+
   <script src="./script.js"></script>
 </body>
 </html>
