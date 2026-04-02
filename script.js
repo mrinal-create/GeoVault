@@ -29,7 +29,6 @@ function parseCountry(c) {
 async function fetchAllCountries() {
   const loadingEl = document.getElementById("loading");
   
-  // Show Loading State
   loadingEl.innerHTML = '<div class="gv-spinner"></div>Loading countries...';
   loadingEl.style.display = "flex";
 
@@ -40,13 +39,10 @@ async function fetchAllCountries() {
     const data = await response.json();
     allCountries = data.map(parseCountry);
     
-    // Sort alphabetically by default for the initial display
     allCountries.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
 
-    // Hide Loading State
     loadingEl.style.display = "none";
     
-    // Render Data to the screen
     renderGrid(allCountries);
 
   } catch (err) {
@@ -55,7 +51,6 @@ async function fetchAllCountries() {
   }
 }
 
-// 2. Dynamically Display Data on the Webpage
 function renderGrid(countries) {
   const grid = document.getElementById("country-grid");
   grid.innerHTML = ""; 
@@ -63,7 +58,6 @@ function renderGrid(countries) {
   countries.forEach((country, index) => {
     const fallbackFlag = `https://flagcdn.com/w320/${country.cca2.toLowerCase()}.png`;
     
-    // Lazy load images that are not instantly visible on screen
     const lazyAttr = index > 12 ? 'loading="lazy"' : "";
 
     // HTML for the card
@@ -101,7 +95,6 @@ function renderGrid(countries) {
     grid.innerHTML += cardHTML;
   });
 
-  // 3. Update Status Bar Counters dynamically
   const totalPop = countries.reduce((sum, c) => sum + c.population, 0);
   const totalArea = countries.reduce((sum, c) => sum + c.area, 0);
 
@@ -112,3 +105,21 @@ function renderGrid(countries) {
 
 fetchAllCountries();
 
+
+
+
+// Theme Toggle (Dark / Light Mode)
+document.getElementById("theme-toggle").addEventListener("click", function() {
+  const body = document.body;
+  const themeLabel = document.getElementById("theme-label");
+  
+
+  body.classList.toggle("light");
+  
+  // Update button text
+  if (body.classList.contains("light")) {
+    themeLabel.textContent = "DARK";
+  } else {
+    themeLabel.textContent = "LIGHT";
+  }
+});

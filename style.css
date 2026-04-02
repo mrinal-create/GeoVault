@@ -1,4 +1,4 @@
-/*  RESET  */
+/* RESET  */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body { 
@@ -7,9 +7,7 @@ html, body {
   padding: 0; 
 }
 
-
-/*  DESIGN TOKENS (CSS VARIABLES)  */
-
+/* DESIGN TOKENS (CSS VARIABLES)  */
 .geovault {
   --gv-bg: #030509;
   --gv-card: #0D1E35;
@@ -41,7 +39,7 @@ html, body {
   flex-direction: column;
 }
 
-/*  NAVBAR  */
+/* NAVBAR  */
 .gv-navbar {
   height: 48px;
   display: flex;
@@ -70,7 +68,7 @@ html, body {
 }
 .gv-theme-toggle:hover { color: var(--gv-text-main); }
 
-/*  SEARCH & FILTERS  */
+/* SEARCH & FILTERS  */
 .gv-controls { padding: 24px 32px 0; }
 .gv-search-wrapper { position: relative; margin-bottom: 16px; }
 .gv-search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--gv-cyan); pointer-events: none; }
@@ -103,11 +101,11 @@ html, body {
 .gv-sort-btn:hover { color: var(--gv-text-main); }
 .gv-sort-btn.active { color: var(--gv-cyan); border-bottom-color: var(--gv-cyan); }
 
-/*  MAIN LAYOUT  */
+/* MAIN LAYOUT  */
 .gv-main { display: flex; flex: 1; padding: 0 32px; gap: 24px; position: relative; }
 .gv-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-content: start; padding-bottom: 80px; }
 
-/*  CARDS  */
+/* CARDS  */
 .gv-card {
   background: var(--gv-card); border: 1px solid var(--gv-border); border-radius: var(--gv-radius);
   overflow: hidden; cursor: pointer; transition: all 0.25s ease; position: relative;
@@ -132,7 +130,7 @@ html, body {
 .gv-fav-btn { background: none; border: none; cursor: pointer; font-size: 20px; color: var(--gv-text-ghost); transition: all 0.2s; padding: 4px; line-height: 1; }
 .gv-fav-btn:hover { color: var(--gv-red); transform: scale(1.25); }
 
-/*  DETAIL PANEL  */
+/* DETAIL PANEL  */
 .gv-panel {
   width: 380px; min-width: 380px; background: var(--gv-panel); border-left: 1px solid var(--gv-cyan);
   border-radius: var(--gv-radius); overflow-y: auto; position: sticky; top: 72px;
@@ -159,7 +157,7 @@ html, body {
 .gv-detail-label { font-family: var(--gv-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gv-text-ghost); }
 .gv-detail-value { font-size: 13px; color: var(--gv-text-main); font-weight: 500; text-align: right; max-width: 200px; }
 
-/*  STATUS BAR  */
+/* STATUS BAR  */
 .gv-statusbar {
   height: 32px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px;
   font-family: var(--gv-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
@@ -168,12 +166,35 @@ html, body {
 }
 .gv-statusbar-left { display: flex; align-items: center; gap: 8px; }
 
-/*  LOADING & SPINNER  */
+/* LOADING & SPINNER  */
 .gv-loading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; min-height: 300px; font-family: var(--gv-mono); color: var(--gv-text-muted); font-size: 14px; }
 .gv-spinner { width: 24px; height: 24px; border: 2px solid var(--gv-border); border-top-color: var(--gv-cyan); border-radius: 50%; animation: gv-spin 0.8s linear infinite; margin-right: 12px; }
 @keyframes gv-spin { to { transform: rotate(360deg); } }
 .gv-no-results { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--gv-text-muted); font-family: var(--gv-mono); font-size: 14px; }
 
-/*  RESPONSIVE  */
+/* RESPONSIVE  */
 @media (max-width: 1200px) { .gv-grid { grid-template-columns: repeat(2, 1fr); } .gv-panel { width: 340px; min-width: 340px; } }
 @media (max-width: 768px) { .gv-navbar { padding: 0 16px; } .gv-controls { padding: 16px; } .gv-main { padding: 0 16px; flex-direction: column; } .gv-grid { grid-template-columns: 1fr; } .gv-panel { width: 100%; min-width: 100%; position: static; max-height: none; } .gv-navbar-center { display: none; } .gv-statusbar { font-size: 9px; padding: 0 12px; } }
+
+
+/*  LIGHT THEME SPECIFIC OVERRIDES */
+
+.geovault.light {
+  --gv-bg: #F8FAFB;
+  --gv-card: #FFFFFF;
+  --gv-panel: #F0F4F8;
+  --gv-cyan: #0891B2;
+  --gv-gold: #D97706;
+  --gv-green: #16A34A;
+  --gv-red: #DC2626;
+  --gv-text-main: #0F172A;
+  --gv-text-muted: #64748B;
+  --gv-text-ghost: #94A3B8;
+  --gv-border: rgba(15, 23, 42, 0.1);
+  --gv-card-hover: #F1F5F9;
+  
+  --gv-nav-bg: rgba(248, 250, 251, 0.85);
+  --gv-cyan-faint: rgba(8, 145, 178, 0.06);
+  --gv-red-faint: rgba(220, 38, 38, 0.06);
+  --gv-glow: rgba(8, 145, 178, 0.15);
+}
